@@ -1,6 +1,33 @@
 import java.util.Scanner;
 
 public class Demineur extends Plateau{
+    protected boolean gameOver;
+    protected int score;
+
+
+    public Demineur( int nbLignes,int nbColonnes,int pourcentage){
+        super(nbLignes, nbColonnes, pourcentage);
+    }
+
+    public int getScore(){
+        return this.score;
+    }
+    public void reveler(int x,int y){
+        this.getCase(x,y).reveler();
+    }
+
+    public boolean marquer(int x,int y){
+        return this.getCase(x, y).estMarque();
+    }
+
+    public boolean estGagnee(){
+            for (int i=0;i<this.nblignes*this.nbColonnes;i++){
+            if (this.getCase(i%nbColonnes, i/nbColonnes).contientUneBombe()){
+                return false;
+            }
+        }
+        return true;
+    }
 
 
     public void affiche(){

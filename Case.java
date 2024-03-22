@@ -33,7 +33,7 @@ public class Case {
     }
 
     public boolean reveler(){
-        if (this.estDecouverte || this.contientUneBombe==false){
+        if (this.estDecouverte && this.contientUneBombe==false){
             return true;
         }
         return false;
